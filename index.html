@@ -9,7 +9,7 @@
 <!-- Included CSS Files, use foundation.css if you do not want minified code -->
 <link rel="stylesheet" href="./stylesheets/foundation.css">
 <link rel="stylesheet" href="./stylesheets/normalize.css">
-
+<link rel="stylesheet" href="./stylesheets/application.css">
 <!-- Custom Modernizr for Foundation -->
 <script src="./javascripts/vendor/modernizr.js"></script>
 
@@ -31,16 +31,16 @@
       </aside>
       <nav class="tab-bar show-for-small" id="small-top-bar">
         <a class="left-off-canvas-toggle menu-icon" href="#">
-          <span>Barrios Trust</span>
+          <span>BARRIOS</span>
         </a>
       </nav>
-      <nav class="top-bar hide-for-small" data-topbar>
+      <nav id="top-nav" class="top-bar hide-for-small dark-turqouise" data-topbar>
         <ul class="title-area">   
-              <a href="/"><h3 class="name">The Barrios Trust</h3></a>
+              <a href="/"><h3 class="name" id="org-name">The Barrios Trust</h3></a>
             </li>
         </ul>
         <section class="top-bar-section big-nav-tabs">
-          <ul class="right right-nav">
+          <ul class="right right-nav" id="top-bar-ul">
             <li><a href="about.html">About Us</a></li>
             <li><a href="past-grants.html">Past Grants</a></li>
             <li><a href="apply.html">Apply</a></li>
@@ -53,34 +53,82 @@
         <ul class="example-orbit" data-orbit>
           <li>
             <img src="./images/borp_4.jpg" alt="slide 2" />
-            <div class="orbit-caption">
-              BORP: Supporting sports for the physically disabled.
+            <div class="orbit-caption row">
+              <h3>BORP: Supporting sports for the physically disabled.</h3>
             </div>
           </li>
           <li>
             <img src="./images/st.vincents_2.jpg" />
             <div class="orbit-caption">
-              St. Vincent's Day Home: Amazing schooling for the underpriveledged youth.
+              <h3>BORP: Supporting sports for the physically disabled.</h3>
             </div>
           </li>
           <li>
             <img src="./images/3-d_artist.jpg" alt="slide 1" />
             <div class="orbit-caption">
-              3-D Arts: Engaging in Oaklang public schools.
+              <h3>BORP: Supporting sports for the physically disabled.</h3>
             </div>
           </li>
           <li>
             <img src="./images/girls_inc_2.jpg" alt="slide 1" />
             <div class="orbit-caption">
-              3-D Arts: Engaging in Oaklang public schools.
+             <h3>BORP: Supporting sports for the physically disabled.</h3>
             </div>
           </li>
         </ul>
       </div>
+      <div class="dark-turqouise feature-section padded-section">
+        <div class="row centered-text">
+          <div class="medium-6 large-6 columns supporticons" style="padding-right: 40px;">
+              <a href="about.html">
+                <h3 style="color: white; font-weight: lighter;">Our Mission</h3>
+              </a>
+              <p class="margin-top-20px text-justify">The Barrios Trust provides financial assistance to non-profit organizations, and individuals in support of high quality educational and developmental experiences for economically disadvantaged young people.</p>
+              <p class="text-justify">Founded in Oakland in 1999, The Barrios Trust (TBT) provides support in the form of grants to youth-centered programs within our community. We focus on programs that encourage healthy habits of mind and body, nourish cultural diversity and educate the whole child. We prefer to support programs that integrate academic skills with enrichment activities in ways that help young people to develop skills, confidence and self-esteem and to reach their full potential.</p>
+              <a href="apply.html">
+                <h3 style="color: white; font-weight: lighter;">Grant Guidelines</h3>
+              </a>
+              <p class="margin-top-20px text-justify">We support non-profit organizations focused on education & self development of underpriveledged youth in the Oakland Metropolitan area of northern California. Our upcoming grant submission deadline is April 3rd, 2014. </p>
+          </div>
+          <div class="medium-6 large-6 columns supporticons">
+              <a href="past-grants.html">
+                <h3 style="color: white; font-weight: lighter;">Recent Grants</h3>
+              </a>
+              <div class="row margin-top-20px">
+                <div class="medium-4 large-4 columns supporticons margin-top-20px">
+                  <img style="border-radius: 3px;" src="./images/borp_thumbnail.png">
+                </div>
+                <div class="medium-8 large-8 columns supporticons">
+                  <p style="margin-top: 15px; font-weight: normal;">BORP</p>
+                  <p style="margin-top: -.7em">We supported BORP in their new initiative to develop a boys basketball league...</p>
+                </div>
+              </div>
+              <div class="row margin-top-20px">
+                <div class="medium-4 large-4 columns supporticons margin-top-20px">
+                  <img style="border-radius: 3px;" src="./images/borp_thumbnail.png">
+                </div>
+                <div class="medium-8 large-8 columns supporticons">
+                  <p style="margin-top: 15px; font-weight: normal;">BORP</p>
+                  <p style="margin-top: -.7em">We supported BORP in their new initiative to develop a boys basketball league...</p>
+                </div>
+              </div>
+              <div class="row margin-top-20px">
+                <div class="medium-4 large-4 columns supporticons margin-top-20px">
+                  <img style="border-radius: 3px;" src="./images/borp_thumbnail.png">
+                </div>
+                <div class="medium-8 large-8 columns supporticons">
+                  <p style="margin-top: 15px; font-weight: normal;">BORP</p>
+                  <p style="margin-top: -.7em">We supported BORP in their new initiative to develop a boys basketball league...</p>
+                </div>
+              </div>
 
+          </div>
 
+      </div>
+
+    </div>
       <footer>
-        <div style="background-color: black; color: white;">
+        <div>
           <div class="row centered-text">
             <p> (c) 2014 The Barrios Trust. All right reserved.<!-- See our <a href="#">terms of use.</a>--></p>
           </div>
@@ -94,7 +142,22 @@
 <!-- Included JS Files (Minified) -->
 <script src="./javascripts/foundation.min.js"></script>
 <script>
-$(document).foundation();
+$(document).foundation({
+  orbit: {
+    animation: 'slide',
+    timer_speed: 3000,
+    next_on_click: true,
+    slide_number: false,
+    pause_on_hover: false,
+    pause_on_mousein: false,
+    animation_speed: 2000,
+    navigation_arrows: true,
+    resume_on_mouseout: true,
+    bullets: true,
+    circular: true,
+    swipe: true
+  }
+});
 </script>
 <script type="./javascripts/foundation/foundation.offcanvas.js"></script>
 </body>

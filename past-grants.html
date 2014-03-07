@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Barrios Trust</title>
+<meta charset="utf-8" />
+
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width" />
+<!-- Included CSS Files, use foundation.css if you do not want minified code -->
+<link rel="stylesheet" href="./stylesheets/foundation.css">
+<link rel="stylesheet" href="./stylesheets/normalize.css">
+<link rel="stylesheet" href="./stylesheets/application.css">
+<!-- Custom Modernizr for Foundation -->
+<script src="./javascripts/vendor/modernizr.js"></script>
+
+</head>
+<body>
+<div ng-view class="view-frame">
+  <div class="off-canvas-wrap">
+    <div class="inner-wrap">
+
+      <aside class="left-off-canvas-menu">
+
+        <ul class="off-canvas-list">
+          <li><a href="index.html">Barrios Trust</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="past-grants.html">Past Grants</a></li>
+          <li><a href="apply.html">Apply</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </aside>
+      <nav class="tab-bar show-for-small" id="small-top-bar">
+        <a class="left-off-canvas-toggle menu-icon" href="#">
+          <span>BARRIOS</span>
+        </a>
+      </nav>
+      <nav id="top-nav" class="top-bar hide-for-small dark-turqouise" data-topbar>
+        <ul class="title-area">   
+              <a href="index.html"><h3 class="name" id="org-name">The Barrios Trust</h3></a>
+            </li>
+        </ul>
+        <section class="top-bar-section big-nav-tabs">
+          <ul class="right right-nav" id="top-bar-ul">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="past-grants.html">Past Grants</a></li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </section>
+      </nav>
+
+      <footer>
+        <div>
+          <div class="row centered-text">
+            <p> (c) 2014 The Barrios Trust. All right reserved.<!-- See our <a href="#">terms of use.</a>--></p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+<!-- Latest version of jQuery -->
+<script src="./javascripts/jquery.js"></script>
+<!-- Included JS Files (Minified) -->
+<script src="./javascripts/foundation.min.js"></script>
+<script type="./javascripts/foundation/foundation.offcanvas.js"></script>
+</body>
+</html>    
