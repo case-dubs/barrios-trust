@@ -1,5 +1,5 @@
 h3, h4, p, a{
-  font-weight: lighter;
+  font-weight: 200;
   letter-spacing: 2px;
 }
 
@@ -38,7 +38,8 @@ h3, h4, p, a{
 
 #top-nav ul h3{
   text-transform: uppercase;
-  padding: 10px 0px 0px 30px;
+  padding: 10px 0px 0px 0px;
+  padding-left: 1.5em;
   text-align: baseline;
   color: #F3F0F0;
 }
@@ -79,6 +80,11 @@ h3, h4, p, a{
 .margin-top-20px{
   margin-top: 20px;
 }
+
+.margin-top-40px{
+  margin-top: 40px;
+}
+
 .dark-turqouise{
   background-color: #277A6B;
   color: #F3F0F0;
@@ -90,6 +96,46 @@ h3, h4, p, a{
 
 .padded-section{
   padding: 4em 0em;
+}
+
+.warren-quote{
+  margin-top: 3em;
+  /*display: inline-block; 
+  float: right; 
+  width: 66%; 
+  position: relative; 
+  padding: 7em 3em;*/
+
+}
+
+.founder-feature{
+  height: 100%;
+}
+
+.founder-photo{
+  width: 100%;
+}
+
+/*.founder-feature div:first-child{
+  float: left; 
+  width: 34%; 
+  position: relative;
+}*/
+
+.warren-quote h4:first-child{
+
+  line-height: 2em;
+  font-style: italic;
+  display: inline;
+  position: relative;
+  color: #F3F0F0;
+  font-weight: 100;
+}
+
+.grantees-banner img{
+  width: 100%;
+  margin: 0 auto;
+
 }
 
 footer div{
