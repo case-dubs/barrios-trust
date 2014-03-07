@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Barrios Trust</title>
+<meta charset="utf-8" />
+
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width" />
+<!-- Included CSS Files, use foundation.css if you do not want minified code -->
+<link rel="stylesheet" href="./stylesheets/foundation.css">
+<link rel="stylesheet" href="./stylesheets/normalize.css">
+
+<!-- Custom Modernizr for Foundation -->
+<script src="./javascripts/vendor/modernizr.js"></script>
+
+</head>
+<body>
+<div ng-view class="view-frame">
+  <div class="off-canvas-wrap">
+    <div class="inner-wrap">
+
+      <aside class="left-off-canvas-menu">
+
+        <ul class="off-canvas-list">
+          <li><a href="#">Barrios Trust</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="past-grants.html">Past Grants</a></li>
+          <li><a href="apply.html">Apply</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </aside>
+      <nav class="tab-bar show-for-small" id="small-top-bar">
+        <a class="left-off-canvas-toggle menu-icon" href="#">
+          <span>Barrios Trust</span>
+        </a>
+      </nav>
+      <nav class="top-bar hide-for-small" data-topbar>
+        <ul class="title-area">   
+              <a href="/"><h3 class="name">The Barrios Trust</h3></a>
+            </li>
+        </ul>
+        <section class="top-bar-section big-nav-tabs">
+          <ul class="right right-nav">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="past-grants.html">Past Grants</a></li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </section>
+      </nav>    
+      
+      <div>
+        <ul class="example-orbit" data-orbit>
+          <li>
+            <img src="./images/borp_4.jpg" alt="slide 2" />
+            <div class="orbit-caption">
+              BORP: Supporting sports for the physically disabled.
+            </div>
+          </li>
+          <li>
+            <img src="./images/st.vincents_2.jpg" />
+            <div class="orbit-caption">
+              St. Vincent's Day Home: Amazing schooling for the underpriveledged youth.
+            </div>
+          </li>
+          <li>
+            <img src="./images/3-d_artist.jpg" alt="slide 1" />
+            <div class="orbit-caption">
+              3-D Arts: Engaging in Oaklang public schools.
+            </div>
+          </li>
+          <li>
+            <img src="./images/girls_inc_2.jpg" alt="slide 1" />
+            <div class="orbit-caption">
+              3-D Arts: Engaging in Oaklang public schools.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+      <footer>
+        <div style="background-color: black; color: white;">
+          <div class="row centered-text">
+            <p> (c) 2014 The Barrios Trust. All right reserved.<!-- See our <a href="#">terms of use.</a>--></p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+<!-- Latest version of jQuery -->
+<script src="./javascripts/jquery.js"></script>
+<!-- Included JS Files (Minified) -->
+<script src="./javascripts/foundation.min.js"></script>
+<script>
+$(document).foundation();
+</script>
+<script type="./javascripts/foundation/foundation.offcanvas.js"></script>
+</body>
+</html>
