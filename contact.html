@@ -48,14 +48,70 @@
           </ul>
         </section>
       </nav>
+      <div style="background-color:white" >
+        <div class="row padded-section">
+          <div class="medium-12 large-12 columns">
+            <h3>Contact</h3>
+            <p>Please reach out to us by email at info@thebarriostrust.org or by phone at 510-465-5144, Monday-Friday from 9am-5pm, if you have any questions or would like additional information.</p>
+          </div>
+          <div class="medium-6 large-6 columns">
+            <section class="body">
+              <!--<?php
+                  $name = $_POST['name'];
+                  $email = $_POST['email'];
+                  $message = $_POST['message'];
+                  $from = 'From: $name on Caseywilson.me'; 
+                  $to = 'casey594@gmail.com'; 
+                  $subject = 'Caseywilson.me outreach';
+                  $human = $_POST['human'];
+                    
+                  $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+                      
+                  if ($_POST['submit2'] && $human == '4') {         
+                      if (mail ($to, $subject, $body, $from)) { 
+                    echo '<p style="color:red;">Your message has been sent!</p>';
+                } else { 
+                    echo '<p style="color:red;">Something went wrong with your message, please go back and try again!</p>'; 
+                } 
+                  } else if ($_POST['submit2'] && $human != '4') {
+                echo '<p style="color:red;">You answered the anti-spam question incorrectly!</p>';
+                  }
+              ?>-->
 
-      <footer>
-        <div>
-          <div class="row centered-text">
-            <p> (c) 2014 The Barrios Trust. All right reserved.<!-- See our <a href="#">terms of use.</a>--></p>
+              <form method="post" action="#contactSection">
+                    
+                <label>Name</label>
+                <input name="name" placeholder="Type Here">
+                        
+                <label>Email</label>
+                <input name="email" type="email" placeholder="Type Here">
+                        
+                <label>Message</label>
+                <textarea name="message" placeholder="Type Here"></textarea>
+                    
+                <label>*What is 2+2? (Anti-spam)</label>
+                <input name="human" placeholder="Type Here">
+                
+                <input id="submit2" name="submit2" type="submit" value="Submit">
+                    
+              </form>
+
+            </section>
+          </div>
+          <div class="medium-6 large-6 columns hide-for-small">
+              <div>
+                <img class="map" src="./images/bay_area_map.png">
+              </div>
           </div>
         </div>
-      </footer>
+        <footer>
+          <div>
+            <div class="row centered-text">
+              <p> (c) 2014 The Barrios Trust. All right reserved.<!-- See our <a href="#">terms of use.</a>--></p>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
   </div>
 </div>
@@ -64,5 +120,8 @@
 <!-- Included JS Files (Minified) -->
 <script src="./javascripts/foundation.min.js"></script>
 <script type="./javascripts/foundation/foundation.offcanvas.js"></script>
+<script>
+  $(document).foundation();
+</script>
 </body>
 </html>    
