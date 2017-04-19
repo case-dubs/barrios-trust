@@ -1,0 +1,449 @@
+<div class="sixteen columns section clearfix collection_nav">
+  <h1 class="collection_title">
+    {{ page.title }}
+  </h1>
+  <h2 class="steps-header">Step #1: Choose your box size</h2>
+
+    <div class="collections-listing">
+      <!--{% paginate collections by 10 %}
+
+        {% if collections.size > 0 %}-->
+
+
+        <ul>
+          {% for collection in collections %}
+            {% if collection.handle == 'boxes' %}
+              {% for product in collection.products %}
+
+                <div class="one-third column thumbnail">
+                {% if product.featured_image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+                  {% assign alt_text = product.title %}
+                {% else %}
+                  {% assign alt_text = product.featured_image.alt %}
+                {% endif %}
+
+                {% if product.images.size > 1 %}
+                  <a href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+                    <img {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ alt_text | escape }}"
+                      onmouseover="this.src='{{ product.images[1] | product_img_url: 'large' | image.src }}'" onmouseout="this.src='{{ product.featured_image | product_img_url: 'large' }}'"/>
+                  </a>
+                {% else %}
+                  <a href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+                    <img {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ alt_text | escape }}">
+                  </a>
+                {% endif %}
+                  <div class="info">                                              
+                    <span class="title">{{ product.title }}</span>
+                    <br/>
+                    <span class="price" style="padding-left:0px;float:left">
+                      {% if product.compare_at_price_max > product.price %}
+                        <span class="was_price">{{ product.compare_at_price_max | money }}</span>
+                      {% endif %}
+                      {% if product.available %}
+                        {% if product.price_varies %}
+                          {% if product.compare_at_price_max > product.price %}
+                            <br />
+                          {% endif %}
+                          <small><em>from</em></small>
+                        {% endif %}
+                        {{ product.price_min | money }}
+                      {% else %}
+                        {{ product.price_min | money }} - {{ settings.sold_out_text }}
+                      {% endif %}
+                    </span>      
+                  </div>
+                  <div class="selection">
+                    <form>
+                      <input type="checkbox"  id="{{product.handle}}" class="box-selector">
+                    </form>
+                  </div>
+                  {% if product.compare_at_price_max > product.price %}
+                    <div class="sale">Sale</div>
+                  {% endif %}
+                  {% for col in product.collections %}
+                    {% if col.handle == 'new' %}
+                      <div class="sale">New</div>
+                    {% endif %}
+                  {% endfor %}
+
+                {% if settings.quick_shop_enabled %}
+                  <div data-rel="#product-{{ product.id }}" class="quick_shop action_button">
+                    {{ settings.quick_shop_text }}
+                  </div>
+
+                  <div class="modal" id="product-{{ product.id }}">
+                    <div title='Close' class='fancybox-close'></div>
+                    <div class="nine columns alpha modal_image">
+                      <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ alt_text | escape }}" />
+                    </div>
+                    <div class="five columns">
+                      <h3>{{ product.title }}</h3>
+
+                      <p class="modal_price">
+                        <span class="was_price">
+                          {% if product.price < product.compare_at_price_max %}
+                            {{ product.compare_at_price | money }} 
+                          {% endif %}
+                        </span>
+                        <span class="current_price">
+                          {{ product.price | money }} {% if product.available == false %} - {{ settings.sold_out_text }}{% endif %}   
+                          <br>
+                        </span>
+                      </p>
+
+                      {% include 'product-notify-me' %}
+
+                      {% if settings.product_description_position == "top" %}
+                        <p>
+                          {{ product.description | strip_html | truncatewords: settings.description_words | replace: 'Description', '' | replace: 'Specs', '' | replace: 'Shipping', '' | replace: 'Details', ''  }}
+                        </p>
+                        <p>
+                          <a href="{{ product.url | within: collection }}" class="view_product_info" title="View {{ product.title | escape }}">View full product details &rarr;</a>
+                        </p>
+                      {% endif %}
+                  
+                      {% include 'product-form' %}
+
+                      {% if settings.product_description_position == "bottom" %}
+                        <p>
+                          {{ product.description | strip_html | truncatewords: settings.description_words | replace: 'Description', '' | replace: 'Specs', '' | replace: 'Shipping', '' | replace: 'Details', ''  }}
+                        </p>
+                        <p>
+                          <a href="{{ product.url | within: collection }}" class="view_product_info" title="View {{ product.title | escape }}">View full product details &rarr;</a>
+                        </p>
+                      {% endif %}
+                    
+                    </div>  
+                  </div>
+                {% endif %}
+              </div>
+
+
+
+
+
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <!--{% else %}
+          <p>No Collections found...</p>
+        {% endif %}
+      {% endpaginate %}-->
+    </div>
+
+</div>
+  <h2 class="steps-header">Step #2: Select your products</h2>
+  <p class="small-message">Please select 2 of the following products to fill up your Small box</p>
+  <p class="medium-message">Please select 3 of the following products to fill up your Medium box</p>
+  <div class="collections-listing">
+      <!--{% paginate collections by 10 %}
+
+        {% if collections.size > 0 %}-->
+
+
+        <ul>
+          {% for collection in collections %}
+            {% if collection.handle == 'medium-box-collection' %}
+              {% for product in collection.products %}
+
+                <div class="eight columns thumbnail">
+                {% if product.featured_image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+                  {% assign alt_text = product.title %}
+                {% else %}
+                  {% assign alt_text = product.featured_image.alt %}
+                {% endif %}
+
+                {% if product.images.size > 1 %}
+                  <a href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+                    <img {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ alt_text | escape }}"
+                      onmouseover="this.src='{{ product.images[1] | product_img_url: 'large' | image.src }}'" onmouseout="this.src='{{ product.featured_image | product_img_url: 'large' }}'"/>
+                  </a>
+                {% else %}
+                  <a href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+                    <img {% if settings.align_height %}style="height:{{ settings.collection_height }}px"{% endif %} src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ alt_text | escape }}">
+                  </a>
+                {% endif %}
+                  <div class="info">                                              
+                    <span class="title">{{ product.title }}</span>
+                    <br/>
+                    <span class="price" style="padding-left:0px;float:left">
+                      {% if product.compare_at_price_max > product.price %}
+                        <span class="was_price">{{ product.compare_at_price_max | money }}</span>
+                      {% endif %}
+                      {% if product.available %}
+                        {% if product.price_varies %}
+                          {% if product.compare_at_price_max > product.price %}
+                            <br />
+                          {% endif %}
+                          <small><em>from</em></small>
+                        {% endif %}
+                        {{ product.price_min | money }}
+                      {% else %}
+                        {{ product.price_min | money }} - {{ settings.sold_out_text }}
+                      {% endif %}
+                    </span>      
+                  </div>
+                  <div class="selection">
+                    <form>
+                      <input type="checkbox"  id="{{product.handle}}" class="box-selector">
+                    </form>
+                  </div>
+                  {% if product.compare_at_price_max > product.price %}
+                    <div class="sale">Sale</div>
+                  {% endif %}
+                  {% for col in product.collections %}
+                    {% if col.handle == 'new' %}
+                      <div class="sale">New</div>
+                    {% endif %}
+                  {% endfor %}
+
+                {% if settings.quick_shop_enabled %}
+                  <div data-rel="#product-{{ product.id }}" class="quick_shop action_button">
+                    {{ settings.quick_shop_text }}
+                  </div>
+
+                  <div class="modal" id="product-{{ product.id }}">
+                    <div title='Close' class='fancybox-close'></div>
+                    <div class="nine columns alpha modal_image">
+                      <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ alt_text | escape }}" />
+                    </div>
+                    <div class="five columns">
+                      <h3>{{ product.title }}</h3>
+
+                      <p class="modal_price">
+                        <span class="was_price">
+                          {% if product.price < product.compare_at_price_max %}
+                            {{ product.compare_at_price | money }} 
+                          {% endif %}
+                        </span>
+                        <span class="current_price">
+                          {{ product.price | money }} {% if product.available == false %} - {{ settings.sold_out_text }}{% endif %}   
+                          <br>
+                        </span>
+                      </p>
+
+                      {% include 'product-notify-me' %}
+
+                      {% if settings.product_description_position == "top" %}
+                        <p>
+                          {{ product.description | strip_html | truncatewords: settings.description_words | replace: 'Description', '' | replace: 'Specs', '' | replace: 'Shipping', '' | replace: 'Details', ''  }}
+                        </p>
+                        <p>
+                          <a href="{{ product.url | within: collection }}" class="view_product_info" title="View {{ product.title | escape }}">View full product details &rarr;</a>
+                        </p>
+                      {% endif %}
+                  
+                      {% include 'product-form' %}
+
+                      {% if settings.product_description_position == "bottom" %}
+                        <p>
+                          {{ product.description | strip_html | truncatewords: settings.description_words | replace: 'Description', '' | replace: 'Specs', '' | replace: 'Shipping', '' | replace: 'Details', ''  }}
+                        </p>
+                        <p>
+                          <a href="{{ product.url | within: collection }}" class="view_product_info" title="View {{ product.title | escape }}">View full product details &rarr;</a>
+                        </p>
+                      {% endif %}
+                    
+                    </div>  
+                  </div>
+                {% endif %}
+              </div>
+
+
+
+
+
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <!--{% else %}
+          <p>No Collections found...</p>
+        {% endif %}
+      {% endpaginate %}-->
+    </div>
+
+</div>
+  <p class="medium-message">Please select 6 of the following products to fill up your Large box</p>
+  <h2 class="steps-header">Step #3: Select your box tag type</h2>
+</div>
+
+{% if page.content != blank %}
+  <div class="sixteen columns" id="page">
+    <div class="section clearfix">    
+      {{ page.content }}
+    </div>
+  </div>
+{% endif %}
+
+{% comment %}
+  To display a page of collections, you can use the same method for displaying your 'home page collections' by creating a 'link list' of collections - http://support.outofthesandbox.com/customer/portal/articles/942377
+
+  Below, you'll need to replace "linklist-handle" with the desired handle of your link list. You can find the handle of your link list when you're editing it.
+{% endcomment %}
+
+{% assign linklist = linklists["linklist-handle"] %}
+{% assign collections_per_row = settings.frontpage_collections_per_row %}
+
+
+<script>
+(function(){
+  
+/* Load Script function we may need to load jQuery from the Google's CDN */
+/* That code is world-reknown. */
+/* One source: http://snipplr.com/view/18756/loadscript/ */
+ 
+var loadScript = function(url, callback){
+ 
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+ 
+  // If the browser is Internet Explorer.
+  if (script.readyState){ 
+    script.onreadystatechange = function(){
+      if (script.readyState == "loaded" || script.readyState == "complete"){
+        script.onreadystatechange = null;
+        callback();
+      }
+    };
+  // For any other browser.
+  } else {
+    script.onload = function(){
+      callback();
+    };
+  }
+ 
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+    
+};
+ 
+/* This is my app's JavaScript */
+var myAppJavaScript = function($){
+  // $ in this scope references the jQuery object we'll use.
+  // Don't use jQuery, or jQuery191, use the dollar sign.
+  // Do this and do that, using $.
+  $('body').append('<p>Your app is using jQuery version '+$.fn.jquery+'</p>');
+};
+ 
+/* If jQuery has not yet been loaded or if it has but it's too old for our needs,
+we will load jQuery from the Google CDN, and when it's fully loaded, we will run
+our app's JavaScript. Set your own limits here, the sample's code below uses 1.7
+as the minimum version we are ready to use, and if the jQuery is older, we load 1.9. */
+if ((typeof jQuery === 'undefined') || (parseFloat(jQuery.fn.jquery) < 1.7)) {
+  loadScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function(){
+    jQuery191 = jQuery.noConflict(true);
+    myAppJavaScript(jQuery191);
+  });
+} else {
+  myAppJavaScript(jQuery);
+}
+
+/* CUSTOM Javascript */
+
+
+ 
+})();
+    
+</script>
+<style>
+  .steps-header{
+    text-align: left;
+  }
+</style>
+
+</div>
+  <h2 class="steps-header">Step #2: Select your products</h2>
+  <p class="small-message">Please select 2 of the following products to fill up your Small box</p>
+  <p class="medium-message">Please select 3 of the following products to fill up your Medium box</p>
+  <p class="medium-message">Please select 6 of the following products to fill up your Large box</p>
+  <h2 class="steps-header">Step #3: Select your box tag type</h2>
+</div>
+
+{% if page.content != blank %}
+  <div class="sixteen columns" id="page">
+    <div class="section clearfix">    
+      {{ page.content }}
+    </div>
+  </div>
+{% endif %}
+
+{% comment %}
+  To display a page of collections, you can use the same method for displaying your 'home page collections' by creating a 'link list' of collections - http://support.outofthesandbox.com/customer/portal/articles/942377
+
+  Below, you'll need to replace "linklist-handle" with the desired handle of your link list. You can find the handle of your link list when you're editing it.
+{% endcomment %}
+
+{% assign linklist = linklists["linklist-handle"] %}
+{% assign collections_per_row = settings.frontpage_collections_per_row %}
+{% include 'custom-collection-loop' %}
+
+<script>
+(function(){
+  
+/* Load Script function we may need to load jQuery from the Google's CDN */
+/* That code is world-reknown. */
+/* One source: http://snipplr.com/view/18756/loadscript/ */
+ 
+var loadScript = function(url, callback){
+ 
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+ 
+  // If the browser is Internet Explorer.
+  if (script.readyState){ 
+    script.onreadystatechange = function(){
+      if (script.readyState == "loaded" || script.readyState == "complete"){
+        script.onreadystatechange = null;
+        callback();
+      }
+    };
+  // For any other browser.
+  } else {
+    script.onload = function(){
+      callback();
+    };
+  }
+ 
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+    
+};
+ 
+/* This is my app's JavaScript */
+var myAppJavaScript = function($){
+  // $ in this scope references the jQuery object we'll use.
+  // Don't use jQuery, or jQuery191, use the dollar sign.
+  // Do this and do that, using $.
+
+  $('body').append('<p>Your app is using jQuery version '+$.fn.jquery+'</p>');
+};
+ 
+/* If jQuery has not yet been loaded or if it has but it's too old for our needs,
+we will load jQuery from the Google CDN, and when it's fully loaded, we will run
+our app's JavaScript. Set your own limits here, the sample's code below uses 1.7
+as the minimum version we are ready to use, and if the jQuery is older, we load 1.9. */
+if ((typeof jQuery === 'undefined') || (parseFloat(jQuery.fn.jquery) < 1.7)) {
+  loadScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function(){
+    jQuery191 = jQuery.noConflict(true);
+    myAppJavaScript(jQuery191);
+  });
+} else {
+  myAppJavaScript(jQuery);
+}
+
+ 
+})();
+    
+</script>
+<style>
+  .steps-header{
+    text-align: left;
+  }
+  .thumbnail a img {
+    height: 200px;
+  }
+</style>

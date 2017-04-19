@@ -81,6 +81,10 @@ h3, h4, p, a{
   margin-top: -1em;
 }
 
+.featured-grants a{
+  color: white;
+  text-decoration: none;
+}
 .margin-top-20px{
   margin-top: 20px;
 }
@@ -142,6 +146,35 @@ h3, h4, p, a{
 
 }
 
+.bio-section img {
+  width: 200px;
+  border-radius: 100px;
+}
+
+/* Grants page */
+
+.featured-grantees .row {
+  margin: 20px auto;
+}
+.featured-grantees .row img {
+  width: 150px;
+  border-radius: 75px;
+  margin-top: 20px auto;
+}
+.recent-grantees h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.recent-grantees ul {
+  line-height: 2;
+  letter-spacing: 1.5px;
+  padding: 10px 0px;
+}
+ .recent-grantees ul li {
+    text-align: center;
+   list-style-type: none;
+   padding: 5px 0px;
+}
 /*Contact page */
 label {
     display:block;
@@ -223,14 +256,15 @@ form input, input[type="name"], input[type="email"], input[type="text"], textare
       opacity:.9;
   }
 
+.map-holder {
+  text-align: center;
+}
 .map{
-  margin-left: 25px;
-  padding-top: 2.3em;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 70%;
 }
 
-.map img{
-  border-radius: 5px;
-}
   /*footer*/
 
 footer div{
